@@ -91,9 +91,11 @@ export const getCompanyById = async (req, res) => {
 export const updateCompany = async (req, res) => {
   try {
     const { id } = req.params;
-    // logo should come later via cloudnairy
 
     const file = req.file;
+    console.log(req.body);
+    console.log(id);
+
     let cloudinaryResponse;
     if (file) {
       const fileUri = getDataUri(file);

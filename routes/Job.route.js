@@ -13,7 +13,7 @@ const Job = express.Router();
 Job.get("/get", getAllJobs);
 Job.get("/companyjob/:companyId", isAuthenticated, getSpecificCompanyJob);
 Job.post("/", isAuthenticated, createJob);
-Job.get("/:id", getJobById);
 Job.get("/admin", isAuthenticated, getAdminJobs);
+Job.get("/:id", getJobById);
 
 export default Job;

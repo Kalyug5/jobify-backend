@@ -68,6 +68,7 @@ export const getApplicants = async (req, res) => {
       options: { sort: { createdAt: -1 } },
       populate: {
         path: "applicant",
+        select: "-password",
       },
     });
     if (!job) {
@@ -86,8 +87,10 @@ export const getApplicants = async (req, res) => {
 };
 export const updateStatus = async (req, res) => {
   try {
+    console.log(req.body);
+
     const { status } = req.body;
-    const { applicationId } = req.params;
+    const { id } = req.params;
     if (!status) {
       return res.status(400).json({
         message: "status is required",
@@ -96,7 +99,7 @@ export const updateStatus = async (req, res) => {
     }
 
     // find the application by applicantion id
-    const application = await Application.findOne({ _id: applicationId });
+    const application = await Application.findOne({ _id: id });
     if (!application) {
       return res.status(404).json({
         message: "Application not found.",

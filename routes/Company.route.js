@@ -13,6 +13,6 @@ const Company = express.Router();
 Company.post("/register", isAuthenticated, singleUpload, registerCompany);
 Company.get("/get", isAuthenticated, getCompanyByUser);
 Company.get("/:id", isAuthenticated, getCompanyById);
-Company.put("/:id", isAuthenticated, updateCompany);
+Company.put("/:id", isAuthenticated, singleUpload, updateCompany);
 
 export default Company;
