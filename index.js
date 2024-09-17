@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 const corsOption = {
-  origin: "https://jobify-tawny.vercel.app/",
+  origin: "https://jobify-tawny.vercel.app",
   credentials: true,
 };
 
